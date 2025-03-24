@@ -1,0 +1,196 @@
+:root {
+    --cor-fundo: #1a202c;
+    --cor-texto: #e2e8f0;
+    --cor-lista: #2d3748;
+    --cor-cartao: #4a5568;
+    --cor-borda: #718096;
+    --cor-primaria: #4299e1;
+    --cor-erro: #e53e3e;
+    --cor-sucesso: #48bb78;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --borda-arredondada: 0.375rem;
+}
+
+body.dark-mode {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.kanban {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.add-list, .delete-list {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    background-color: var(--cor-lista);
+    color: white;
+    border: none;
+    border-radius: var(--borda-arredondada);
+    box-shadow: var(--sombra);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-list:hover, .delete-list:hover {
+    background-color: #4a5568;
+    transform: translateY(-2px);
+}
+
+.lists {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem;
+    width: 100%;
+}
+
+.list {
+    background-color: var(--cor-lista);
+    border-radius: var(--borda-arredondada);
+    width: 20rem;
+    padding: 1.25rem;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.list:hover {
+    transform: translateY(-4px);
+}
+
+.list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.list-title input {
+    border: none;
+    background-color: transparent;
+    font-size: 1.25rem;
+    width: 80%;
+    padding: 0.5rem;
+    color: inherit;
+    font-weight: 600;
+}
+
+.list-title button {
+    background-color: var(--cor-erro);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: var(--borda-arredondada);
+    transition: background-color 0.3s;
+}
+
+.list-title button:hover {
+    background-color: #c53030;
+}
+
+.cards-container {
+    flex-grow: 1;
+    margin-top: 1.25rem;
+}
+
+.card {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+    border-radius: var(--borda-arredondada);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+textarea,
+input[type="datetime-local"] {
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+    padding: 0.75rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--borda-arredondada);
+    background-color: transparent;
+    color: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    box-sizing: border-box;
+    display: block;
+}
+
+textarea {
+    height: 7.5rem;
+}
+
+.save-card, .delete-card, .add-card {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--borda-arredondada);
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: auto;
+}
+
+.save-card {
+    background-color: var(--cor-sucesso);
+    color: white;
+    margin-top: 0.75rem;
+}
+
+.delete-card {
+    background-color: var(--cor-erro);
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.add-card {
+    background-color: var(--cor-primaria);
+    color: white;
+    margin-top: 1rem;
+}
+
+.save-card:hover, .delete-card:hover, .add-card:hover {
+    transform: translateY(-2px);
+}
+
+.save-card:hover {
+    background-color: #38a169;
+}
+
+.delete-card:hover {
+    background-color: #c53030;
+}
+
+.add-card:hover {
+    background-color: #3182ce;
+}
+
+.reminder-alert {
+    animation: reminder-pulse 2s infinite ease-in-out;
+}
+
+@keyframes reminder-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+    }
+}
